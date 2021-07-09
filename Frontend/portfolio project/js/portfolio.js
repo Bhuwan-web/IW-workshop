@@ -1,5 +1,6 @@
 let username="Bhuwan-web";
 let gitUserAPI=`https://api.github.com/users/${username}`;
+let repoAPI=`${gitUserAPI}/repos`
 const makePortfolio=()=>{
     fetch(gitUserAPI)
     .then(response=>response.json())
@@ -15,7 +16,13 @@ const makePortfolio=()=>{
     })
 };
 
-
+const makeRepo = ()=>{
+    fetch(repoAPI)
+    .then(response=>response.json())
+    .then(data=>{
+        console.log(data.filter(repo=>!repo.fork));
+    })
+};
 
 const form=document.querySelector('form');
 form.addEventListener('submit',event=>{
@@ -28,3 +35,4 @@ form.addEventListener('submit',event=>{
 
 
 makePortfolio();
+makeRepo();
