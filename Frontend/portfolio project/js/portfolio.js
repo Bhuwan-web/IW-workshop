@@ -1,3 +1,5 @@
+const repoSection=document.querySelector(".repos");
+
 let username="Bhuwan-web";
 let gitUserAPI=`https://api.github.com/users/${username}`;
 let repoAPI=`${gitUserAPI}/repos`
@@ -20,7 +22,25 @@ const makeRepo = ()=>{
     fetch(repoAPI)
     .then(response=>response.json())
     .then(data=>{
-        console.log(data.filter(repo=>!repo.fork));
+        const repos=data.filter(repo=>!repo.fork);
+        repoSection.innerHTML="";
+        repos.forEach(repo => {
+            repoSection.innerHTML+=`
+            <article class="repo repo1">
+            <h2 class="name">
+                ${repo.name}
+            </h2>
+            <div class="description">
+                ${repo.description}    
+            </div>
+            <div class="language">
+               Language used: ${repo.language}
+            </div>
+            <div class="watchers">
+                Watcher's count: ${repo.watchers}
+            </div>
+        </article>`
+        });
     })
 };
 
@@ -29,7 +49,9 @@ form.addEventListener('submit',event=>{
     event.preventDefault();
     username=form.anonUsername.value;
     gitUserAPI=`https://api.github.com/users/${username}`;
+    repoAPI=`${gitUserAPI}/repos`;
     makePortfolio();
+    makeRepo();
 
 })
 
