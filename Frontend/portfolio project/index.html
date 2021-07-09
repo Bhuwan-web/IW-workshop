@@ -5,42 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <style>
-        #laoding{
-            margin:auto auto;
-            width:20rem;
-            height: 20rem;
-            border-radius: 50%;
-            border:lightblue 2px dotted;
-            position:relative;
-        }
-        #laoding span{
-            position:absolute;
-            top:50%;
-            left:50%;
-            transform:translate(-50%,-50%);
-        }
-        html{
-            font-size:62.5%;
-        }
-        header{
-            font-size:1.9rem;
-            box-shadow: 0.5rem 0.5rem 5rem lightblue;
-            margin:0px auto;
-            padding:1rem 2rem;
-        }
-        .header{
-            text-align:center;
-            max-width:45rem;
-        }
-        #profile{
-            height:30rem;
-            border-radius:50%;
-        }
-        h1{
-            font-size: 160%;
-        }
-    </style>
+<link rel="stylesheet" href="./css/portfolio.css">
 </head>
 <body>
     <header class="header">
@@ -63,34 +28,6 @@
         <input type="text" placeholder="your github username" id="anonUsername">
         <button>Check</button>
     </form>
-    <script>
-        let username="Bhuwan-web";
-        let gitUserAPI=`https://api.github.com/users/${username}`;
-        const makePortfolio=()=>{
-            fetch(gitUserAPI)
-            .then(response=>response.json())
-            .then(data=>{
-                console.log(data)
-                document.getElementById("profile").src=data.avatar_url;
-                document.getElementById("profileCap").innerText=data.login;
-                document.getElementById("username").textContent=data.name;
-                document.getElementById("bio").textContent=data.bio;
-                document.getElementById("repos").textContent=`Total projects public in github :${data.public_repos}`;
-                document.querySelector(".apiDetails").hidden=false;
-                document.querySelector("#laoding").hidden=true;
-            })
-        };
-
-        
-        window.onload=makePortfolio;
-        const form=document.querySelector('form');
-        form.addEventListener('submit',event=>{
-            event.preventDefault();
-            username=form.anonUsername.value;
-            gitUserAPI=`https://api.github.com/users/${username}`;
-            makePortfolio();
-
-        })
-    </script>
+<script src="./js/portfolio.js"></script>
 </body>
 </html>
