@@ -1,0 +1,9 @@
+git init 	initilizes the repo for version control
+git status	git command to check the status of folder,
+git branch	to check the list of branches sets so far 
+git branch <branch name>		creates new branches 
+git checkout <branch name>	jumps to selected branch
+git merge <branch name>	merge the selected branch to the active branch
+git push command from git hub repo to set the push directory and then........
+git push -u origin master	push the repo to the github 	
+
