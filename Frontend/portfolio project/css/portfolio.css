@@ -18,19 +18,56 @@ html{
 .header{
     font-size:1.9rem;
     box-shadow: 0.5rem 1rem 5rem lightblue;
-    margin:0px auto;
+    margin:1rem auto;
     padding:1rem 2rem;
     text-align:center;
-    max-width:45rem;
-    min-height: 90vh;
+    width:45rem;
+    max-width: 95.5vw;
+    min-height: 95vh;
     border-radius:0.5rem;
+    line-height: 150%;
+    position:relative;
+}
+figure{
+    padding:0px;
 }
 #profile{
     height:30rem;
     border-radius:50%;
 }
-h1{
+.header h1{
+    margin-bottom:2.45rem;
     font-size: 160%;
+}
+.downArrow{
+    position:absolute;
+    top:100%;
+    left:50%;
+    transform: translate(calc(-50% - 1rem),-50%) rotate(90deg);
+    width:5rem;
+    height:5rem;
+    display: inline-block;
+    background:lightskyblue;
+    border-radius:50%;
+    vertical-align: middle;
+    line-height: 5rem;
+    font-size:3rem;
+}
+a.downArrow{
+    text-decoration: none;
+    color:inherit;
+}
+.header .downArrow:hover{
+    background-color: lightgreen;
+}
+form{
+    margin:2rem;
+    
+}
+.repoContainer h2{
+    margin:2rem;    
+    text-align:center;
+    font-size:3rem;
 }
 .repos{
     display:flex;
@@ -42,13 +79,29 @@ h1{
     flex:1;
     margin:1rem 0.5rem;
     padding:0.7rem 2rem;
-    min-width:30rem;
-    max-width:65rem;
+    min-width:45%;
+    width:45%;
+    max-width:95vh;
+    margin-left:0px;
     display:inline-block;
     border:0.5px solid lightskyblue;
     border-radius:1rem;
     line-height:150%;
+    
 }
 .repos .repo .name{
     text-align: center;
+}
+.repo .description{
+    margin:1.2rem auto;
+}
+.repo .language,.watchers,.clone_url{
+    font-size:1.3rem;
+    color:rgba(51, 51, 51,0.8);
+}   
+.footer{
+    text-align: center;
+    background-color: #333;
+    color:#eee; 
+    padding:1rem;
 }
